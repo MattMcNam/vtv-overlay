@@ -1,0 +1,310 @@
+/**
+ * Fonts
+ */
+@font-face {
+  font-family: "AlternateGothicEF-NoTwo";
+  src: url("../fonts/AlternateGothicEF-NoTwo.ttf");
+}
+
+@font-face {
+  font-family: "AlternateGothicEF-NoThree";
+  src: url("../fonts/AlternateGothicEF-NoThree.ttf");
+}
+
+@AltGothNo2: "AlternateGothicEF-NoTwo", sans-serif;
+@AltGothNo3: "AlternateGothicEF-NoThree", sans-serif;
+
+body {
+  background-color: rgb(230, 230, 230);
+
+  font-family: @AltGothNo3;
+  color: rgb(230, 230, 230);
+
+  /* Smoothing on Webkit/OSX, Windows is OK (and ignores this anyway) */
+  -webkit-font-smoothing: antialiased;
+}
+
+#container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1280px;
+  height: 720px;
+  background-color: white;
+}
+
+/**
+ * General classes
+ */
+.textShadow {
+  text-shadow: rgba(0, 0, 0, 0.8) 1px 2px 3px;
+}
+
+.textShadowFaint {
+  text-shadow: rgba(0, 0, 0, 0.6) 1px 2px 3px;
+}
+
+.topRoundedGrayContainer {
+  position: relative;
+  background-color: rgb(40, 40, 40);
+  border: solid 1px rgb(48, 48, 48);
+  border-radius: 5px 5px 4px 4px;
+
+  width: 118px;
+  height: 115px;
+
+  .label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-family: @AltGothNo2;
+    font-size: 18px;
+  }
+
+  .image {
+    position: absolute;
+    top: 5px;
+    left: 6px;
+    width: 106px;
+    height: 85px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    background-image: url('../img/staff/placeholder.png');
+    background-position: center center;
+    background-size: cover;
+  }
+}
+
+.bottomRoundedGrayContainer {
+  background-color: rgb(40, 40, 40);
+  border: solid 1px rgb(48, 48, 48);
+  border-radius: 4px 4px 5px 5px;
+
+  width: 92px;
+  height: 90px;
+
+  .label {
+    position: absolute;
+    top: -2px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-family: @AltGothNo2;
+    font-size: 18px;
+  }
+
+  .image {
+    position: absolute;
+    bottom: 4px;
+    left: 4px;
+    width: 84px;
+    height: 68px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+}
+
+/**
+ * Bars
+ */
+@topBarHeight: 112px;
+@bottomBarHeight: 83px;
+@thinBarHeight: 41px;
+@thickBarBG: rgba(68, 68, 68, 0.7);
+@thinBarBG: rgb(40, 40, 40);
+
+#topBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1280px;
+  height: @topBarHeight;
+  background-color: @thickBarBG;
+}
+
+#topBarThin {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1280px;
+  height: @thinBarHeight;
+  background-color: @thinBarBG;
+}
+
+#bottomBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 1280px;
+  height: @bottomBarHeight;
+  background-color: @thickBarBG;
+}
+
+#bottomBarThin {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 1280px;
+  height: @thinBarHeight;
+  background-color: @thinBarBG;
+}
+
+/**
+ * VTV & TFTV logos
+ */
+#birdie {
+  position: absolute;
+  top: 2px;
+  left: 20px;
+  width: 48px;
+  height: 43px;
+  background-image: url('../img/birdie.png');
+  background-size: 48px 43px;
+}
+
+#tftv {
+  position: absolute;
+  top: -4px;
+  left: 72px;
+  width: 48px;
+  height: 48px;
+  background-image: url('../img/tftv.png');
+  background-size: cover;
+}
+
+/**
+ * Event details.
+ * Multiplay logo, various text elements
+ */
+#multiplayLogo {
+  position: absolute;
+  top: 44px;
+  left: 13px;
+  width: 67px;
+  height: 68px;
+  background-image: url('../img/multiplay-prerendered.png');
+  background-size: 67px 68px;
+}
+
+#eventName {
+  position: absolute;
+  top: 47px;
+  left: 95px;
+  height: 42px;
+  font-size: 36px;
+  letter-spacing: 0.05em;
+}
+
+#sponsor {
+  position: absolute;
+  top: 83px;
+  left: 95px;
+  font-size: 18px;
+  letter-spacing: 0.02em;
+}
+
+#customMessage {
+  position: absolute;
+  top: 45px;
+  left: 18px;
+  font-family: @AltGothNo2;
+  font-size: 28px;
+  letter-spacing: 0.01em;
+}
+
+/**
+ * Sponsors
+ */
+#TTeSports {
+  position: absolute;
+  top: -54px;
+  left: 34px;
+
+  .image {
+    background: url('../img/ttesports.png') 0 -8px;
+  }
+}
+
+#club3D {
+  position: absolute;
+  top: -54px;
+  left: 145px;
+
+  .image {
+    background-image: url('../img/club3d.png');
+  }
+}
+
+#aquaTuning {
+  position: absolute;
+  top: -54px;
+  left: 255px;
+
+  .image {
+    background: url('../img/aquatuning.png') 0 -8px;
+  }
+}
+
+/**
+ * Active staff
+ * Casters/Interviewer get caster class
+ * Streamer/Live cameraman gets streamer
+ */
+#staffContainer {
+  position: absolute;
+  top: 4px;
+  right: 14px;
+  height: 156px;
+  /* width is dynamic */
+
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.staffMember {
+  padding-left: 5px;
+  padding-right: 5px;
+  height: 156px;
+  width: 118px;
+  float: right;
+  position: relative;
+}
+
+.staffIcon {
+  width: 100%;
+  height: 41px;
+
+  background: no-repeat center 0;
+}
+
+.streamer {
+  background-image: url('../img/camera.png');
+
+  /* icon is a little smaller, should fix it */
+  background-position: center 4px;
+}
+
+.caster {
+  background-image: url('../img/mic.png');
+}
+
+/**
+ * Social links
+ */
+#socialLinks {
+  position: absolute;
+  bottom: 0;
+  right: 18px;
+
+  font-family: @AltGothNo2;
+  font-size: 24px;
+  letter-spacing: 0.02em;
+  vertical-align: top;
+
+  img {
+    width: 26px;
+    height: 26px;
+  }
+}
