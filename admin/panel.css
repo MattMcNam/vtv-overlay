@@ -2,14 +2,13 @@
   display: inline-block;
 }
 #vtv-pregame hr {
-  margin-bottom: 0;
-  margin-top: 0;
+  margin: 8px;
 }
 #vtv-pregame .form-group {
   margin-bottom: 0;
 }
 #vtv-pregame .form-inline {
-  margin: 0 8px 8px;
+  margin: 0 8px;
 }
 #vtv-pregame .container-fluid {
   margin-bottom: 8px;
