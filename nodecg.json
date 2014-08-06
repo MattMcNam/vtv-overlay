@@ -1,0 +1,14 @@
+{
+  "name": "vtv-pregame",
+  "version": "0.0.1",
+  "homepage": "http://www.vanillatf2.org",
+  "authors": [
+    "Arie <github@ariekanarie.nl>",
+    "Matt McNamara <matt@mattmcn.com>"
+  ],
+  "description": "A pre-game overlay with dynamic active staff and current event names",
+  "resolutions": [
+    "720p"
+  ],
+  "license": "MIT"
+}
