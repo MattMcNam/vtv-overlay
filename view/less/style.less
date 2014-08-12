@@ -15,7 +15,7 @@
 @AltGothNo3: "AlternateGothicEF-NoThree", sans-serif;
 
 body {
-  background-color: rgb(230, 230, 230);
+  //background-color: rgb(230, 230, 230);
 
   font-family: @AltGothNo3;
   color: rgb(230, 230, 230);
@@ -30,7 +30,7 @@ body {
   left: 0;
   width: 1280px;
   height: 720px;
-  background-color: white;
+  //background-color: white;
 }
 
 /**
@@ -270,6 +270,18 @@ body {
   width: 118px;
   float: right;
   position: relative;
+
+  -webkit-perspective: 1000;
+  perspective: 1000px;
+
+  transition: 0.5s;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.staffMember.hidden {
+  -webkit-transform: rotateY(90deg);
+  transform: rotateY(90deg);
 }
 
 .staffIcon {

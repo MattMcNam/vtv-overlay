@@ -38,10 +38,10 @@ function refreshStaffList() {
     staffSelect2.empty();
     staffSelect3.empty();
 
-    staff.forEach(function (member) {
+    staff.forEach(function (member, index) {
       // Create option element
       var option = document.createElement('option');
-      option.value = member.name;
+      option.value = index;
       option.innerHTML = member.name;
 
       // jQueryify it
@@ -54,3 +54,33 @@ function refreshStaffList() {
     });
   });
 }
+
+function updateStaff() {
+    var id1 = staffSelect1.find(':selected').val();
+    var id2 = staffSelect2.find(':selected').val();
+    var id3 = staffSelect3.find(':selected').val();
+
+    var left = {
+        name: staff[id1].name,
+        avatar: staff[id1].avatar
+    };
+
+    var right = {
+        name: staff[id2].name,
+        avatar: staff[id2].avatar
+    };
+
+    var camera = {
+        name: staff[id3].name,
+        avatar: staff[id3].avatar
+    };
+
+    nodecg.sendMessage('staffUpdate', {
+        leftCaster: left,
+        rightCaster: right,
+        camera: camera
+    });
+}
+
+$("#vtv-overlay-updateActiveStaff").click(updateStaff);
+$("#vtv-overlay-refreshStaffList").click(refreshStaffList);

@@ -4,6 +4,8 @@
 	<%- setupScript %>
 
 	<link href="css/style.css" rel="stylesheet"/>
+    <script src="jquery.min.js"></script>
+    <script src="vtv-overlay.js"></script>
 </head>
 <body>
 
@@ -22,25 +24,25 @@
 		<!-- Streamer/casters -->
 		<!-- Long names for debugging -->
 		<div id="staffContainer">
-			<div class="staffMember">
+			<div class="staffMember hidden" id="streamer">
 				<div class="staffIcon streamer"></div>
 				<div class="topRoundedGrayContainer">
-					<div class="label">DavidTheWin</div>
-					<div class="image"></div>
+                    <div class="label" id="streamerLabel"></div>
+                    <div class="image" id="streamerImage"></div>
 				</div>
 			</div>
-			<div class="staffMember">
+			<div class="staffMember hidden" id="rCaster">
 				<div class="staffIcon caster"></div>
 				<div class="topRoundedGrayContainer">
-					<div class="label">WARHURYEAH</div>
-					<div class="image"></div>
+					<div class="label" id="rCasterLabel"></div>
+					<div class="image" id="rCasterImage"></div>
 				</div>
 			</div>
-			<div class="staffMember">
+			<div class="staffMember hidden" id="lCaster">
 				<div class="staffIcon caster"></div>
 				<div class="topRoundedGrayContainer">
-					<div class="label">CommanderX</div>
-					<div class="image"></div>
+					<div class="label" id="lCasterLabel"></div>
+					<div class="image" id="lCasterImage"></div>
 				</div>
 			</div>
 		</div>
