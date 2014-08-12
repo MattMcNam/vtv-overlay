@@ -1,6 +1,7 @@
 $(document).ready(function() {
     nodecg.listenFor('staffUpdate', staffUpdate);
 
+    // Only search for these elements once
     var streamer = $('#streamer');
     var streamerLabel = $('#streamerLabel');
     var streamerImage = $('#streamerImage');
@@ -20,6 +21,7 @@ $(document).ready(function() {
         leftCaster.addClass('hidden');
         rightCaster.addClass('hidden');
 
+        // Hide animation is 0.5s long, so only change data after that duration
         setTimeout(function() {
             streamerLabel.text(data.camera.name);
             streamerImage.css('background-image', 'url(\''+ data.camera.avatar + '\')');
@@ -40,5 +42,10 @@ $(document).ready(function() {
                 rightCaster.removeClass('hidden');
         }, 550);
     }
+
+    // Browser source sometimes loads with no text rendered, but is fixed when anything changes on screen
+    // So, we run a staff animation for a fraction of a second and hide it again when the source first loads
+    streamer.removeClass('hidden');
+    setTimeout(function() { streamer.addClass('hidden'); }, 50);
 });
 
