@@ -7,10 +7,20 @@ var staffSelect1 = $("#vtv-overlay-staff1");
 var staffSelect2 = $("#vtv-overlay-staff2");
 var staffSelect3 = $("#vtv-overlay-staff3");
 
+var staffListRadio1 = $('#vtv-overlay-staff1-prepick');
+var staffListRadio2 = $('#vtv-overlay-staff2-prepick');
+var staffListRadio3 = $('#vtv-overlay-staff3-prepick');
+
+var staffCustom1 = $('#vtv-overlay-staff1-name');
+var staffCustom2 = $('#vtv-overlay-staff2-name');
+var staffCustom3 = $('#vtv-overlay-staff3-name');
+
 var emptyStaffMember = {
   "name": "NONE",
   "avatar": ""
 };
+
+var guestAvatar = "/view/vtv-pregame/img/guest.jpg";
 
 var staff = [];
 
@@ -56,24 +66,51 @@ function refreshStaffList() {
 }
 
 function updateStaff() {
-    var id1 = staffSelect1.find(':selected').val();
-    var id2 = staffSelect2.find(':selected').val();
-    var id3 = staffSelect3.find(':selected').val();
+    var left = {},
+        right = {},
+        camera = {};
 
-    var left = {
-        name: staff[id1].name,
-        avatar: staff[id1].avatar
-    };
+    // Left caster icon
+    if (staffListRadio1.is(':checked')) {
+        var id = staffSelect1.find(':selected').val();
+        left = {
+            name: staff[id].name,
+            avatar: staff[id].avatar
+        };
+    } else {
+        left = {
+            name: staffCustom1.val(),
+            avatar: guestAvatar
+        }
+    }
 
-    var right = {
-        name: staff[id2].name,
-        avatar: staff[id2].avatar
-    };
+    // Right caster icon
+    if (staffListRadio2.is(':checked')) {
+        var id = staffSelect2.find(':selected').val();
+        right = {
+            name: staff[id].name,
+            avatar: staff[id].avatar
+        };
+    } else {
+        right = {
+            name: staffCustom2.val(),
+            avatar: guestAvatar
+        }
+    }
 
-    var camera = {
-        name: staff[id3].name,
-        avatar: staff[id3].avatar
-    };
+    // Streamer icon
+    if (staffListRadio3.is(':checked')) {
+        var id = staffSelect3.find(':selected').val();
+        camera = {
+            name: staff[id].name,
+            avatar: staff[id].avatar
+        };
+    } else {
+        camera = {
+            name: staffCustom3.val(),
+            avatar: guestAvatar
+        }
+    }
 
     nodecg.sendMessage('staffUpdate', {
         leftCaster: left,
@@ -84,3 +121,11 @@ function updateStaff() {
 
 $("#vtv-overlay-updateActiveStaff").click(updateStaff);
 $("#vtv-overlay-refreshStaffList").click(refreshStaffList);
+
+$('#vtv-overlay-fadeIn').click(function() {
+    nodecg.sendMessage('fadeIn');
+});
+
+$('#vtv-overlay-fadeOut').click(function() {
+    nodecg.sendMessage('fadeOut');
+});

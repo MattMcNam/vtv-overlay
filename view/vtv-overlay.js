@@ -1,5 +1,7 @@
 $(document).ready(function() {
     nodecg.listenFor('staffUpdate', staffUpdate);
+    nodecg.listenFor('fadeIn', fadeIn);
+    nodecg.listenFor('fadeOut', fadeOut);
 
     // Only search for these elements once
     var streamer = $('#streamer');
@@ -13,6 +15,8 @@ $(document).ready(function() {
     var rightCaster = $('#rCaster');
     var rightCasterLabel = $('#rCasterLabel');
     var rightCasterImage = $('#rCasterImage');
+
+    var container = $('#container');
 
     function staffUpdate(data) {
         console.log(data);
@@ -41,6 +45,14 @@ $(document).ready(function() {
             if (data.rightCaster.name !== "NONE")
                 rightCaster.removeClass('hidden');
         }, 550);
+    }
+
+    function fadeIn() {
+        container.removeClass('hidden');
+    }
+
+    function fadeOut() {
+        container.addClass('hidden');
     }
 
     // Browser source sometimes loads with no text rendered, but is fixed when anything changes on screen
