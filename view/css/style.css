@@ -173,6 +173,18 @@ body {
   font-size: 18px;
   letter-spacing: 0.02em;
 }
+#specificEvent {
+  position: absolute;
+  top: 44px;
+  left: 476px;
+  width: 394px;
+  height: 68px;
+  font-size: 32px;
+  font-family: "AlternateGothicEF-NoTwo", sans-serif;
+  letter-spacing: 0.03em;
+  text-align: center;
+  vertical-align: middle;
+}
 #customMessage {
   position: absolute;
   top: 45px;
@@ -184,29 +196,15 @@ body {
 /**
  * Sponsors
  */
-#TTeSports {
+#sponsor1 {
   position: absolute;
   top: -54px;
   left: 34px;
 }
-#TTeSports .image {
-  background: url('../img/ttesports.png') 0 -8px;
-}
-#club3D {
-  position: absolute;
-  top: -54px;
-  left: 145px;
-}
-#club3D .image {
-  background-image: url('../img/club3d.png');
-}
-#aquaTuning {
-  position: absolute;
-  top: -54px;
-  left: 255px;
-}
-#aquaTuning .image {
-  background: url('../img/aquatuning.png') 0 -8px;
+#sponsor1 .image {
+  background-image: url('../img/guest.jpg');
+  background-position: center center;
+  background-size: cover;
 }
 /**
  * Active staff

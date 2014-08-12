@@ -1,7 +1,12 @@
 $(document).ready(function() {
-    nodecg.listenFor('staffUpdate', staffUpdate);
-    nodecg.listenFor('fadeIn', fadeIn);
-    nodecg.listenFor('fadeOut', fadeOut);
+    nodecg.listenFor('update', update);
+
+    nodecg.listenFor('fadeIn', function() {
+        container.removeClass('hidden');
+    });
+    nodecg.listenFor('fadeOut', function() {
+        container.addClass('hidden');
+    });
 
     // Only search for these elements once
     var streamer = $('#streamer');
@@ -18,12 +23,20 @@ $(document).ready(function() {
 
     var container = $('#container');
 
-    function staffUpdate(data) {
+    var customMessage = $('#customMessage');
+    var specificEvent = $('#specificEvent');
+
+    function update(data) {
         console.log(data);
 
-        streamer.addClass('hidden');
-        leftCaster.addClass('hidden');
-        rightCaster.addClass('hidden');
+        if (streamerLabel.text() !== data.camera.name)
+            streamer.addClass('hidden');
+
+        if (leftCasterLabel.text() !== data.leftCaster.name)
+            leftCaster.addClass('hidden');
+
+        if (rightCasterLabel.text() !== data.rightCaster.name)
+            rightCaster.addClass('hidden');
 
         // Hide animation is 0.5s long, so only change data after that duration
         setTimeout(function() {
@@ -45,14 +58,12 @@ $(document).ready(function() {
             if (data.rightCaster.name !== "NONE")
                 rightCaster.removeClass('hidden');
         }, 550);
-    }
 
-    function fadeIn() {
-        container.removeClass('hidden');
-    }
+        customMessage.text(data.general);
+        specificEvent.text(data.specific);
 
-    function fadeOut() {
-        container.addClass('hidden');
+        textFit(customMessage[0], {maxFontSize: 28});
+        textFit(specificEvent[0], {maxFontSize: 36, alignVert: true, multiLine: true, detectMultiLine: true});
     }
 
     // Browser source sometimes loads with no text rendered, but is fixed when anything changes on screen

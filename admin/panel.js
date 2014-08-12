@@ -15,6 +15,9 @@ var staffCustom1 = $('#vtv-overlay-staff1-name');
 var staffCustom2 = $('#vtv-overlay-staff2-name');
 var staffCustom3 = $('#vtv-overlay-staff3-name');
 
+var specific = $('#vtv-overlay-event');
+var general = $('#vtv-overlay-general-event');
+
 var emptyStaffMember = {
   "name": "NONE",
   "avatar": ""
@@ -112,10 +115,12 @@ function updateStaff() {
         }
     }
 
-    nodecg.sendMessage('staffUpdate', {
+    nodecg.sendMessage('update', {
         leftCaster: left,
         rightCaster: right,
-        camera: camera
+        camera: camera,
+        specific: specific.val(),
+        general: general.val()
     });
 }
 
