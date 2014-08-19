@@ -13,3 +13,11 @@
 #vtv-pregame .container-fluid {
   margin-bottom: 8px;
 }
+#vtv-pregame .control-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #959595;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 8px;
+}
